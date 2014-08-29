@@ -4,20 +4,26 @@
 	<title>Silly Simple</title>	
 </head>
 <body>
-	<button id="silly">Do it</button>
-	<button id="clear">Clear</button>
-	<div id="results"></div>
+
+<h1>Example</h1>
+<p>Create Contact</p>
 	
 <script src="js/zepto.js"></script>
-<script src="js/script.js"></script>
-<script>
-$('#silly').click(function(){
-	SILLY.DoIt($('#results'));
-});	
 
-$('#clear').click(function(){
-	$('#results').html('');
-});	
+
+<script>
+
+	// Wait for Phonegap to load
+	//
+	document.addEventListener("deviceready", onDeviceReady, false);
+
+	// PhoneGap is ready
+    //
+    function onDeviceReady() {
+        var myContact = navigator.contacts.create({"displayName": "Test User"});
+        myContact.gender = "male";
+        console.log("The contact, " + myContact.displayName + ", is of the " + myContact.gender + " gender");
+    }
 
 </script>			
 </body>
